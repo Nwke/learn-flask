@@ -1,0 +1,74 @@
+2019-01-29 16:23:11,851 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\flasMicro\app\__init__.py:46]
+2019-01-29 16:23:17,876 ERROR: Exception on /edit_profile [GET] [in c:\users\denis\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\denis\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\denis\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\denis\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\denis\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\denis\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\denis\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\denis\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\Denis\PycharmProjects\flasMicro\app\routes.py", line 100, in edit_profile
+    return render_template('edit2_profile.html', title='Edit Profile', form=form)
+  File "c:\users\denis\venv\lib\site-packages\flask\templating.py", line 134, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "c:\users\denis\venv\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "c:\users\denis\venv\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "c:\users\denis\venv\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "c:\users\denis\venv\lib\site-packages\jinja2\loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "c:\users\denis\venv\lib\site-packages\flask\templating.py", line 58, in get_source
+    return self._get_source_fast(environment, template)
+  File "c:\users\denis\venv\lib\site-packages\flask\templating.py", line 86, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: edit2_profile.html
+2019-01-29 16:49:35,901 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\flasMicro\app\__init__.py:46]
+2019-01-29 16:49:41,257 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\flasMicro\app\__init__.py:46]
+2019-01-29 18:49:25,912 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\flasMicro\app\__init__.py:46]
+2019-01-29 18:50:22,232 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\flasMicro\app\__init__.py:46]
+2019-01-29 18:51:25,481 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\flasMicro\app\__init__.py:46]
+2019-01-29 18:51:29,425 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\flasMicro\app\__init__.py:46]
+2019-01-29 18:51:45,004 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\flasMicro\app\__init__.py:46]
+2019-01-29 18:51:47,574 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\flasMicro\app\__init__.py:46]
+2019-01-29 19:01:02,200 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\flasMicro\app\__init__.py:46]
+2019-01-29 19:01:08,868 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\flasMicro\app\__init__.py:46]
+2019-01-29 19:01:28,026 ERROR: Exception on /unfollow/den2 [GET] [in c:\users\denis\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\denis\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\denis\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\denis\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\denis\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\denis\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\denis\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\denis\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\Denis\PycharmProjects\flasMicro\app\routes.py", line 133, in unfollow
+    current_user.unfollow(user)
+  File "C:\Users\Denis\PycharmProjects\flasMicro\app\models.py", line 40, in unfollow
+    if self.is_following(user):
+  File "C:\Users\Denis\PycharmProjects\flasMicro\app\models.py", line 44, in is_following
+    return self.followed.filter(followers.c.followed_id == user.id).count() > 0
+AttributeError: 'BaseQuery' object has no attribute 'id'
+2019-01-29 19:03:02,652 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\flasMicro\app\__init__.py:46]
+2019-01-29 19:03:07,044 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\flasMicro\app\__init__.py:46]
+2019-01-29 19:03:11,339 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\flasMicro\app\__init__.py:46]
+2019-01-29 21:51:16,965 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\flasMicro\app\__init__.py:46]
+2019-01-29 21:51:34,348 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\flasMicro\app\__init__.py:46]
+2019-01-29 22:07:07,026 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\flasMicro\app\__init__.py:46]
+2019-01-29 22:07:10,464 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\flasMicro\app\__init__.py:46]
