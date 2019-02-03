@@ -14,8 +14,6 @@ import logging
 from logging.handlers import SMTPHandler, RotatingFileHandler
 import os
 
-# FIXME: MODULE "MOMENT" TO TIME DOESN'T WORK
-
 app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
@@ -54,3 +52,8 @@ if not app.debug:
     app.logger.info('Microblog startup')
 
 from app import routes, models, errors
+
+
+@babel.localeselector
+def get_locale():
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
