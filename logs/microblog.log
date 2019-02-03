@@ -68,3 +68,11 @@ Traceback (most recent call last):
     name, filename)
 jinja2.exceptions.TemplateSyntaxError: unexpected char "'" at 472
 2019-01-29 23:47:12,103 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\learn-flask\app\__init__.py:48]
+2019-02-02 08:57:11,927 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\learn-flask\app\__init__.py:48]
+2019-02-02 09:01:49,596 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\learn-flask\app\__init__.py:48]
+2019-02-02 09:07:22,216 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\learn-flask\app\__init__.py:44]
+2019-02-02 15:09:41,401 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\learn-flask\app\__init__.py:48]
+2019-02-02 15:11:15,135 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\learn-flask\app\__init__.py:48]
+2019-02-02 15:15:55,172 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\learn-flask\app\__init__.py:48]
+2019-02-03 10:37:15,375 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\learn-flask\app\__init__.py:48]
+2019-02-03 11:16:45,454 INFO: Microblog startup [in C:\Users\Denis\PycharmProjects\learn-flask\app\__init__.py:54]
