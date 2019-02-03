@@ -1,10 +1,15 @@
 from flask import render_template, flash, redirect, url_for, request
-from app import app, db
-from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm
+from app import app, db, moment
+from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm, ResetPasswordRequestForm, \
+    ResetPasswordForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Post
 from werkzeug.urls import url_parse
 from datetime import datetime
+from app.email import send_password_reset_email
+
+
+# from app.email import send_password_reset_email
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -26,8 +31,7 @@ def index():
     next_url = url_for('index', page=posts.next_num) if posts.has_next else None
     prev_url = url_for('index', page=posts.prev_num) if posts.has_prev else None
 
-    return render_template('index.html', title='Home', form=form,
-                           posts=posts.items, next_url=next_url,
+    return render_template('index.html', title='Home', form=form, posts=posts.items, next_url=next_url,
                            prev_url=prev_url)
 
 
@@ -40,8 +44,7 @@ def explore():
     next_url = url_for('index', page=posts.next_num) if posts.has_next else None
     prev_url = url_for('index', page=posts.prev_num) if posts.has_prev else None
 
-    return render_template('index.html', title='Explore', posts=posts.items,
-                           next_url=next_url, prev_url=prev_url)
+    return render_template('index.html', title='Explore', posts=posts.items, next_url=next_url, prev_url=prev_url)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -152,6 +155,41 @@ def unfollow(username):
     db.session.commit()
     flash('You are not following {}.'.format(username))
     return redirect(url_for('user', username=username))
+
+
+@app.route('/reset_password/<token>', methods=['POST', 'GET'])
+def reset_password(token):
+    if current_user.is_authenticated:
+        redirect(url_for('index'))
+
+    user = User.verify_reset_password_token(token)
+
+    if not user:
+        return redirect(url_for('index'))
+
+    form = ResetPasswordForm()
+    if form.validate_on_submit():
+        user.set_password(form.password.data)
+        db.session.commit()
+        flash('Your password has been reset')
+        return redirect(url_for('login'))
+    return render_template('reset_password.html', form=form)
+
+
+@app.route('/reset_password_request', methods=['POST', 'GET'])
+def reset_password_request():
+    if current_user.is_authenticated:
+        redirect(url_for('index'))
+    form = ResetPasswordRequestForm()
+
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user:
+            send_password_reset_email(user)
+        flash('Check your email for the instructions to reset your password')
+
+        return redirect(url_for('index'))
+    return render_template('reset_password_request.html', title='Reset password', form=form)
 
 
 @app.before_request
