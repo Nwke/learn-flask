@@ -1,6 +1,6 @@
-from threading import Thread
 from flask_mail import Message
 from app import current_app, mail
+from threading import Thread
 
 
 # FIXME : THIS MODULE DOESN'T WORK : NEED TO DEBUG SENDING MAILS

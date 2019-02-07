@@ -1,12 +1,14 @@
-from datetime import datetime
-from flask import render_template, flash, redirect, url_for, request, g, jsonify, current_app
+from flask import render_template, current_app, redirect, url_for, request, g, jsonify, flash
 from flask_login import current_user, login_required
 from flask_babel import get_locale
+
 from app import db
 from app.main.forms import EditProfileForm, PostForm, MessageForm
 from app.models import User, Post, Message, Notification
 from app.translate import translate, detected_language
 from app.main import bp
+
+from datetime import datetime
 
 
 @bp.before_request

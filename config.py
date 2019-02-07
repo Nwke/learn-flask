@@ -1,13 +1,12 @@
 import os
-
 from dotenv import load_dotenv
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 load_dotenv(os.path.join(basedir, '.env'))
 
 
-class Config(object):
-    YA_TRANSLATOR_KEY = 'trnsl.1.1.20190203T115351Z.1605d09ad9625372.06d7c4f9ca9130fcf31a1037f5b81b3788cace6a'
+class Config:
+    YA_TRANSLATOR_KEY = 'YANDEX_TRANSLATOR_API_KEY'
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
 
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'app.db')
@@ -22,6 +21,5 @@ class Config(object):
     ADMINS = ['your-email@example.com']
     POSTS_PER_PAGE = 25
     LANGUAGES = ['en', 'ru', 'es']
-
 
 # TODO: FUNCTIONALITY "MAIL REPORT" DOESNT'T WORK
