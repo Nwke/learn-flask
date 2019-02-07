@@ -1,2 +1,2 @@
 # learn-flask
-test project on flask
+Test project "Microblog" with use Flask
